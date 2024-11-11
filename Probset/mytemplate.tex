@@ -1,0 +1,92 @@
+\usepackage{graphicx}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+
+\definecolor{myg}{RGB}{56, 140, 70}
+\definecolor{myb}{RGB}{45, 111, 177}
+\definecolor{myexamplebg}{RGB}{238, 238, 238}
+\definecolor{myexampleframe}{RGB}{118, 171, 174}
+\definecolor{myexampletitle}{RGB}{42, 127, 127}
+
+% Problem box.
+\newtcbtheorem{problem}{Problem}{
+    enhanced, 
+    breakable, 
+    colback = white, 
+    colframe = myb!80!black,
+    attach boxed title to top left = {yshift*=-\tcboxedtitleheight},
+    fonttitle = \bfseries,
+    title = {#2},
+    boxed title size = title,
+    boxed title style = {
+        sharp corners,
+	rounded corners = northwest,
+	colback = tcbcolframe,
+	boxrule = 0pt,
+    },
+    underlay boxed title = {
+        \path[fill=tcbcolframe] (title.south west) -- (title.south east) to[out=0, in=180]([xshift=5mm]title.east) -- (title.center-|frame.east)[] |- (frame.north) -| cycle;
+    },
+    #1
+}{def}
+
+% Solution box.
+\newtcbtheorem{solution}{Solution}{
+    enhanced, 
+    breakable,
+    colback = myg!10,
+    frame hidden,
+    boxrule = 0sp,
+    borderline west = {2pt}{0pt}{myg},
+    sharp corners,
+    detach title,
+    before upper = \tcbtitle\par\smallskip, 
+    coltitle = myg!85!black,
+    fonttitle = \bfseries\sffamily,
+    description font = \mdseries,
+    separator sign none,
+    segmentation style = {solid, myg}
+}{th}
+
+% Example box.
+\newtcbtheorem{example}{Example}{
+    colback=myexamplebg, 
+    breakable, 
+    colframe=myexampleframe,
+    coltitle=myexampletitle,
+    boxrule=1pt,
+    sharp corners,
+    detach title, 
+    before upper=\tcbtitle\par\smallskip,
+    fonttitle=\bfseries,
+    description font=\mdseries,
+    separator sign none,
+    description delimiters parenthesis
+}{ex}
+
+% Solution prompt command.
+\newcommand{\soln}{\setlength{\parindent}{0cm}\textbf{\textit{Solution:}}\setlength{\parindent}{1cm} }
+
+% Answer prompt commmand.
+\newcommand{\ans}{\setlength{\parindent}{0cm}\textbf{\textit{Answer: }}\setlength{\parindent}{1cm}\color{red}}
+
+% Problem box command.
+\newcommand{\prob}[2]{
+    \begin{problem}{#1}{}
+        #2
+    \end{problem}
+}
+
+% Solution box command.
+\newcommand{\sol}[1]{
+    \begin{solution}{}{}
+        #1
+    \end{solution}
+}
+
+% Example box command.
+\newcommand{\ex}[2]{
+    \begin{example}{#1}{}
+        #2
+    \end{example}
+}
