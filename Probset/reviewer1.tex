@@ -78,15 +78,40 @@ and integrating both sides gives us
 \chapter*{Homogeneous ODE}
 
 \prob{}{
-    Solve $2x^3ydx=(x^4+y^4)dy=0$
+    Solve $2x^3ydx+(x^4+y^4)dy=0$
 }
+\soln Each coefficient is a homogeneous function of degree four, so we can let $x=vy$ and substitute to get
+\begin{align*}
+    2(vy)^3yd(vy)+((vy)^4+y^4)dy &= 0 \\
+    2v^3y^4(vdy+ydv)+(v^4y^4+y^4)dy &= 0 \\
+    2v^4y^4dy+2v^3y^5dv+v^4y^4dy+y^4dy &= 0 \\
+    3v^4y^4dy+2v^3y^5dv+y^4dy &= 0 \\
+    y^4(3v^4+1)dy+2v^3y^5dv &= 0
+\end{align*}
+Now we can separate the variables and integrate to get
+\begin{align*}
+    \int \frac{dy}{y} + \int \frac{2v^3}{3v^4+1}dv &= \int 0 \\
+    \ln{|y|} + \frac{1}{6}\ln{|3v^4+1|} &= c \\
+    6\ln{|y|} + \ln{|3v^4+1|} &= c \\
+    e^{6\ln{|y|}}+e^{\ln{|3v^4+1|}} &= e^c \\
+    y^6+(3v^4+1) &= c \\
+    y^6+\frac{3x^4}{y^4}+1 &= c \\
+    y^6+\frac{3x^4}{y^4} &= c-1 \\
+\end{align*}
+Rewriting $c-1$ as $c$, we get
+\[
+    y^6+\frac{3x^4}{y^4} = c
+\]
+\ans $y^6+\frac{3x^4}{y^4} = c$
+
+\medskip
 
 \prob{}{
     Solve $(x^2+y^2)dx=(x^2-xy)dy=0$
 }
 
 \prob{}{
-
+    Solve $(x-y)dx+xdy=0$
 }
 
 \end{document}
