@@ -107,11 +107,47 @@ Rewriting $c-1$ as $c$, we get
 \medskip
 
 \prob{}{
-    Solve $(x^2+y^2)dx=(x^2-xy)dy=0$
+    Solve $(x^2+y^2)dx+(x^2-xy)dy=0$
 }
+\soln Both $M(x,y)$ and $N(x,y)$ are homogeneous functions of degree two, so we can let $y=ux$ and substitute to get
+
+\begin{align*}
+    (x^2+(ux)^2)dx+(x^2-(ux)^2)d(ux) &= 0 \\
+    (x^2+u^2x^2)dx+(x^2-u^2x^2)[udx+xdu] &= 0 \\
+    x^2dx+u^2x^2dx+ux^2dx+x^3du-u^3x^2dx-u^2x^3du &= 0 \\
+    x^2(1+u)dx+x^3(1-u)du &= 0
+\end{align*}
+
+Now we can separate the variables and integrate to get
+
+\begin{align*}
+    \frac{dx}{x}+\frac{1-u}{1+u}du &= 0 \\
+    \frac{dx}{x}+[-1+\frac{2}{1+u}]du &= 0 \\
+    \int \frac{dx}{x}+\int [-1+\frac{2}{1+u}]du &= \int 0 \\
+    \ln{|x|}-u+2\ln{|1+u|} &= c \\
+    \ln{|x|}+\frac{y}{x}-2\ln{|1+\frac{y}{x}|} = c
+\end{align*}
+
+We can rewrite c as $\ln{c}$, and then using the properties of logarithms, we can get
+
+\[
+    ln{\frac{(x+y)^2}{cx}} = \frac{y}{x}
+\]
+
+The definition of logarithms then yeilds
+
+\[
+    (x+y)^2 = cxe^\frac{y}{x}
+\]
+
+\ans $(x+y)^2 = cxe^\frac{y}{x}$
+
+\medskip
 
 \prob{}{
     Solve $(x-y)dx+xdy=0$
 }
+
+The 
 
 \end{document}
